@@ -13,8 +13,12 @@ void clientCommunication(int sock){
     char buffer[1024] = {0};
     
     while(true) {
-        fgets(message, 1024, stdin);
-        send(sock, message, strlen(message), 0);  // Send message to server
+        memset(message, 0, sizeof(message));  // Clear the buffer
+        memset(buffer, 0, sizeof(buffer));  // Clear the buffer
+
+        if(fgets(message, 1024, stdin) != NULL){
+            send(sock, message, strlen(message), 0);  // Send message to server
+        };
         printf("Message sent\n");
         int read_val = read(sock, buffer, 1024);  // Read response from server
         if(read_val <= 0) break;  // Exit loop if read error or server disconnects
