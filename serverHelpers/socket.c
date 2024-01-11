@@ -4,6 +4,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
+#include "readFromclient.h"
 #define PORT 8080
 
 void createSocket(){
@@ -40,7 +41,7 @@ void createSocket(){
         perror("accept");
         exit(EXIT_FAILURE);
     }
-    printf("connected\n");
+    readFromClient(new_socket);
 
     close(new_socket);
     close(server_fd);

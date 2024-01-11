@@ -1,0 +1,1 @@
+void clientCommunication(int sock);

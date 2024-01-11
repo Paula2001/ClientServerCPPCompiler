@@ -1,15 +1,11 @@
-#include "./helpers/socket.h"
+#include "./serverHelpers/socket.h"
 
 int main() {
 
     while (true)
     {
         createSocket();
-    }
-    
-    
-    // Handling the connection...
-    
+    }    
 
     return 0;
 }

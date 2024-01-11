@@ -5,6 +5,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>  // Include for close function
+#include "./clientHelpers/clientCommunication.h"
 #define PORT 8080
 
 int main() {
@@ -29,9 +30,7 @@ int main() {
         printf("\nConnection Failed \n");
         return -1;
     }
+    clientCommunication(sock);
     close(sock);
-    // Communication with server...
-
-
     return 0;
 }
