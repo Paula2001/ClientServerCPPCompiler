@@ -7,14 +7,20 @@
 void readFromClient(int new_socket){
     char buffer[1024] = {0};
     const char *message = "Hello from server";
-   
-    while(true){
-        printf("test\n");
-        memset(buffer, 0, sizeof(buffer));  // Clear the buffer
-        int read_val = read(new_socket, buffer, 1024);  // Read message from client
-        if(read_val <= 0) break;  // Exit loop if read error or client disconnects
+    pid_t x = fork();
+    if(x < 0){
+        printf("process failed to bond");
+        exit(EXIT_FAILURE);
+    }
+    if(x == 0){
+        while(true){
+                memset(buffer, 0, sizeof(buffer));  // Clear the buffer
+                int read_val = read(new_socket, buffer, 1024);  // Read message from client
+                if(read_val <= 0) break;  // Exit loop if read error or client disconnects
 
-        printf("Message from client: %s\n", buffer);
-        send(new_socket, message, strlen(message), 0);  // Send message to client
+                printf("Message from client: %s\n", buffer);
+                send(new_socket, message, strlen(message), 0);  // Send message to client
+        
+        }
     }
 }
