@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "in.h": "c",
-        "readfromclient.h": "c"
+        "readfromclient.h": "c",
+        "iostream": "cpp"
     }
 }
