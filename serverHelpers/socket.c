@@ -41,9 +41,9 @@ void createSocket(){
         perror("accept");
         exit(EXIT_FAILURE);
     }
+    
     readFromClient(new_socket);
 
     close(new_socket);
     close(server_fd);
-
 }

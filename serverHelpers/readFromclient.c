@@ -12,7 +12,7 @@ void readFromClient(int new_socket){
         printf("test\n");
         memset(buffer, 0, sizeof(buffer));  // Clear the buffer
         int read_val = read(new_socket, buffer, 1024);  // Read message from client
-        //if(read_val <= 0) break;  // Exit loop if read error or client disconnects
+        if(read_val <= 0) break;  // Exit loop if read error or client disconnects
 
         printf("Message from client: %s\n", buffer);
         send(new_socket, message, strlen(message), 0);  // Send message to client
