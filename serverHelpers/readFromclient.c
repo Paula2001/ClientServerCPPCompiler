@@ -7,7 +7,7 @@
 void readFromClient(int new_socket){
     char buffer[1024] = {0};
     const char *message = "Hello from server";
-    printf("test\n");
+   
     while(true){
         printf("test\n");
         memset(buffer, 0, sizeof(buffer));  // Clear the buffer
@@ -16,6 +16,5 @@ void readFromClient(int new_socket){
 
         printf("Message from client: %s\n", buffer);
         send(new_socket, message, strlen(message), 0);  // Send message to client
- 
     }
 }
