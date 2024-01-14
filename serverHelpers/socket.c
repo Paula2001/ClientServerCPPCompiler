@@ -41,8 +41,15 @@ void createSocket(){
         perror("accept");
         exit(EXIT_FAILURE);
     }
+     pid_t x = fork();
+    if(x < 0){
+        printf("process failed to bond\n");
+        exit(EXIT_FAILURE);
+    }
     
-    readFromClient(new_socket);
+    if (x == 0){
+        readFromClient(new_socket);
+    }
 
     close(new_socket);
     close(server_fd);

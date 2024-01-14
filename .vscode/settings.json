@@ -2,6 +2,10 @@
     "files.associations": {
         "in.h": "c",
         "readfromclient.h": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "socket.h": "c",
+        "string.h": "c",
+        "stdlib.h": "c",
+        "stat.h": "c"
     }
 }
